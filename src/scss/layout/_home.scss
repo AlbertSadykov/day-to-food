@@ -1,0 +1,121 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: url('../images/hero-bg.jpg') no-repeat center / cover;
+  padding-top: 218px;
+  padding-bottom: 169px;
+
+  // Зеленый градиент-оверлей
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270.05deg, rgba(239, 246, 203, 0.1) 0.04%, rgba(126, 201, 74, 0.6) 56.02%, rgba(78, 133, 40, 0.8) 78.78%, rgba(38, 61, 21, 0.9) 99.96%);
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__content {
+    max-width: 650px;
+    color: $color-white;
+  }
+
+  &__title {
+    margin-bottom: 35px;
+    // H1 уже настроен в base.scss (48px)
+  }
+
+  &__text {
+    margin-bottom: 52px;
+    font-size: 18px;
+  }
+}
+
+
+
+.how-it-works {
+  
+
+  &__grid {
+    display: grid;
+    // Создаем 2 колонки одинаковой ширины (fr)
+    grid-template-columns: repeat(2, 1fr);
+    // Расстояние между карточками (Gap)
+    gap: 40px; 
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; // На мобильных — в одну колонку
+      gap: 30px;
+    }
+  }
+}
+
+// Стили для карточки этапа
+.card-step {
+  position: relative; // Для позиционирования номера
+
+  &__inner {
+    background-color: $color-bg-card; // Светло-салатовый фон карточек
+    border-radius: 30px; // Очень сильное закругление как на макете
+    padding: 40px 60px; // Внутренние отступы
+    height: 100%; // Чтобы все карточки были одной высоты
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); // Очень легкая тень
+    transition: transform 0.3s ease; // Для ховера
+
+    @media (max-width: 992px) {
+      padding: 40px; // Уменьшаем паддинги на планшетах
+    }
+
+    // Лёгкий эффект при наведении (карточка немного приподнимается)
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 0;
+    right: 0; // Номер висит в правом верхнем углу
+    transform: translate(30%, -30%); // Смещаем наружу карточки
+    
+    width: 50px;
+    height: 50px;
+    background-color: $color-secondary; // Яркий зеленый
+    color: $color-white;
+    border-radius: 50%; // Круг
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800; 
+    z-index: 2;
+    border: 5px solid $color-bg-main; 
+
+    @media (max-width: 992px) {
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+    }
+  }
+
+  &__title {
+    // H3 уже настроен в base.scss (28px), добавляем только отступ
+    margin-bottom: 20px;
+    max-width: 90%; // Чтобы текст не упирался в номер
+  }
+
+  &__text {
+    // P уже настроен (16px, lh 1.4), добавляем opacity для легкости
+    font-weight: 300; // Light
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,36 @@
+
+.btn {
+  // Базовые стили из твоего запроса
+  display: inline-block;
+  padding: 14px 111px;
+  background-color: $color-secondary;
+  color: $color-white;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500; // Medium
+  
+  // Убираем дефолтные стили кнопки
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: $transition !important;
+  
+  // Эффект при наведении
+  &:hover {
+    background: $color-hover;
+    transform: translateY(-2px); // Легкий подъем кнопки
+    box-shadow: 0 5px 15px rgba($color-primary, 0.3);
+  }
+
+  // Эффект при клике
+  &:active {
+    transform: translateY(0);
+  }
+
+  // Адаптив для мобилок (чтобы кнопка не была шире экрана)
+  @media (max-width: 480px) {
+    padding: 14px 40px;
+    width: 100%;
+  }
+}

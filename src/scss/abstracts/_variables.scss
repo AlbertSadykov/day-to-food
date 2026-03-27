@@ -1,0 +1,28 @@
+//контейнер
+$container-width: 1140px;
+$container-padding: 15px;
+
+//переходы
+$transition: all 0.3s ease;
+
+//цвета
+// Основные цвета (Brand Colors)
+$color-primary: #52882A;      // Основной зеленый
+$color-secondary: #5ABC15;    // Яркий зеленый (акцентный)
+
+// Текст и фоны
+$color-text: #263D15;         // Цвет текста
+$color-bg-main: #FFF8ED;      // Фон страниц (кремовый)
+$color-bg-card: #EFF6CB;      // Фон карточек (светло-салатовый)
+
+//hover
+$color-hover: #4fa114;       // Цвет при наведении (яркий зеленый)
+
+// Градиенты
+$gradient-accent: linear-gradient(93.14deg, #408B0D 0%, #7FD841 100%);
+
+// Дополнительно: Белый и чистый черный (обычно всегда нужны)
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+$color-badge: #FFC52F;

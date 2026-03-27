@@ -1,0 +1,114 @@
+.header {
+  position: absolute; // Чтобы шапка была поверх баннера
+  top: 55px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  &__top-bar {
+    background-color: $color-bg-main;
+    border-radius: 50px; // Сильное закругление как на макете
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  &__logo {
+    img {
+      height: 50px; // Отрегулируй под свой лого
+      display: block;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 30px;
+    
+    @media (max-width: 992px) {
+      display: none; // Скрываем на планшетах, оставляем бургер
+    }
+  }
+
+  &__badge {
+    background: $color-badge;
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 40px;
+    border-radius: 0 0 20px 20px;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+
+}
+
+
+
+.header__burger {
+  // 1. Сброс дефолтных стилей кнопки
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  
+  // 2. Размеры самой кнопки (зоны клика)
+  width: 24px;
+  height: 17px;
+  position: relative; // Обязательно для позиционирования линий внутри
+
+  // 3. Стили для центральной линии (span)
+  span,
+  &::before,
+  &::after {
+    content: ''; // Для псевдоэлементов
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px; // Толщина линий
+    background-color: #4E8528; // Темный цвет из переменных
+    border-radius: 50px; // Закругленные края линий
+    transition: $transition;
+  }
+
+  // Позиционирование линий
+  &::before {
+    top: 0; // Верхняя линия
+  }
+
+  span {
+    top: 7px; // Центральная линия (высота 20px / 2 - 1px толщины)
+  }
+
+  &::after {
+    bottom: 0; // Нижняя линия
+  }
+
+  // 4. Эффект при наведении (опционально)
+  &:hover {
+    span,
+    &::before,
+    &::after {
+      background-color: $color-secondary; 
+    }
+  }
+}
+
+
+.header__icon{
+    transition: $transition;
+    border-radius: 50px;
+
+    &:hover{
+        box-shadow: 0 5px 15px rgba($color-primary, 0.3);
+    transform: translateY(-2px);
+    }
+
+    &:active{
+        transform: translateY(0);
+    }
+}
+

@@ -1,0 +1,20 @@
+// 1. Абстракции (переменные всегда первые)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// 2. Базовые стили
+@import 'base/base';
+@import 'base/reset';
+@import 'base/fonts';
+@import 'base/typography';
+
+// 3. Компоненты
+@import 'components/buttons';
+@import 'components/card';
+@import 'components/nav';
+
+// 4. Макет (Layout)
+@import 'layout/header';
+@import 'layout/home';
+@import 'layout/footer';
+@import 'layout/sidebar';

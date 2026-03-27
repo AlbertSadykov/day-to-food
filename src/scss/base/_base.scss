@@ -1,0 +1,52 @@
+.container {
+  max-width: $container-width + ($container-padding * 2);
+  padding: 0 $container-padding;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body {
+  background-color: $color-bg-main;
+  font-family: "Gilroy";
+  font-size: 16px;
+  line-height: 1.4;
+  color: $color-text;
+}
+
+
+h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 600; // SemiBold
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600; // Medium
+}
+
+// Основной текст
+p {
+  font-size: 16px;
+  font-weight: 400; // Regular
+}
+
+.section{
+  padding: 80px 0;
+}
+
+.text-center {
+  text-align: center;}
+
+.section__title{
+  margin-bottom: 45px;}
