@@ -196,30 +196,27 @@
 
 <section class="programs">
   <div class="container">
-    <h2
-      class="section__title section__title--white text-center"
-      data-aos="fade-up"
-    >
+    <h2 class="section__title section__title--white text-center" data-aos="fade-up">
       Выберите программу
     </h2>
 
-    <div class="programs__tabs">
-      <button
-        class="programs__tab active"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
-        Домашнее меню
-      </button>
-      <button class="programs__tab" data-aos="fade-up" data-aos-delay="200">
-        Правильное питание
-      </button>
+    <div class="programs__tabs" data-aos="fade-up" data-aos-delay="200">
+      <button class="programs__tab active" data-program="home">Домашнее меню</button>
+      <button class="programs__tab" data-program="health">Правильное питание</button>
     </div>
   </div>
 
   <div class="programs__board">
     <div class="container" data-aos="fade-up" data-aos-delay="300">
-      <h4 class="programs__label">Ежедневное меню</h4>
+
+      <div class="programs__header">
+        <h4 class="programs__label">Ежедневное меню</h4>
+        <div class="calories-nav" id="calories-wrap" style="display: none;">
+          <button class="cal-btn" data-calories="1600">1600 Ккал</button>
+          <button class="cal-btn active" data-calories="2500">2500 Ккал</button>
+        </div>
+      </div>
+      
       <div class="days-nav">
         <button class="day-link">пн</button>
         <button class="day-link active">вт</button>
@@ -232,54 +229,22 @@
 
       <div class="programs__inner">
         <div class="programs__menu">
-          <div class="calories-nav" style="display: none">
-            <button class="cal-btn">1600 Ккал</button>
-            <button class="cal-btn active">2500 Ккал</button>
-          </div>
-
-          <div class="food-grid">
-            <div class="food-card">
-              <img
-                src="images/Овсяная каша 1.png"
-                alt="Завтрак"
-                class="food-card__img"
-              />
-              <span class="food-card__tag">Завтрак</span>
-              <p class="food-card__title">Овсяная каша с курагой и изюмом</p>
+          <div class="food-grid" id="food-render">
             </div>
-            <div class="food-card">
-              <img
-                src="images/freepik__background__2271 1.png"
-                alt="Обед"
-                class="food-card__img"
-              />
-              <span class="food-card__tag">Обед</span>
-              <p class="food-card__title">Куриный суп лапша</p>
-            </div>
-            <div class="food-card">
-              <img
-                src="images/freepik__background__2272 1.png"
-                alt="Ужин"
-                class="food-card__img"
-              />
-              <span class="food-card__tag">Ужин</span>
-              <p class="food-card__title">Куриная отбивная с рисом</p>
-            </div>
-          </div>
         </div>
 
         <aside class="programs__sidebar sidebar">
           <div class="sidebar__section">
             <p class="sidebar__caption">Длительность</p>
             <div class="duration-toggle">
-              <button class="duration-toggle__btn active">7 дней</button>
-              <button class="duration-toggle__btn">28 дней</button>
+              <button class="duration-toggle__btn active" data-duration="7">7 дней</button>
+              <button class="duration-toggle__btn" data-duration="28">28 дней</button>
             </div>
           </div>
 
           <div class="sidebar__details">
             <div class="sidebar__row">
-              <span>Домашнее меню</span>
+              <span id="current-program-name">Домашнее меню</span>
             </div>
             <div class="sidebar__row">
               <span>Скидка на первый заказ:</span>
@@ -291,8 +256,8 @@
             <div class="total-price">
               <span class="total-price__label">Итого:</span>
               <div class="total-price__amount">
-                <span class="old-price">27 000тг</span>
-                <span class="current-price">15 900тг</span>
+                <span class="old-price" id="old-price">27 000тг</span>
+                <span class="current-price" id="new-price">15 900тг</span>
               </div>
             </div>
             <button class="btn btn--full">Заказать</button>
@@ -305,7 +270,9 @@
 
 <section class="section benefits">
   <div class="container">
-    <h2 class="section__title text-center" data-aos="fade-up">Почему DayToDayFood</h2>
+    <h2 class="section__title text-center" data-aos="fade-up">
+      Почему DayToDayFood
+    </h2>
     <div class="benefits__grid">
       <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
         <div class="benefit-item__icon">
@@ -330,7 +297,7 @@
         <p class="benefit-item__text">Разнообразие меню без повторов</p>
       </div>
 
-      <div class="benefit-item"   data-aos="fade-up" data-aos-delay="400">
+      <div class="benefit-item" data-aos="fade-up" data-aos-delay="400">
         <div class="benefit-item__icon">
           <img src="images/ben-4.jpg" alt="" />
         </div>
@@ -342,26 +309,32 @@
   </div>
 </section>
 
-
 <section class="delivery">
   <div class="container">
-   <div class="delivery__block">
-     <div class="delivery__text-wrapper">
-      <div class="delivery__content" data-aos="fade-up">
-        <h2 class="delivery__title">Доставка домашних рационов в Караганде</h2>
-        <p class="delivery__text">
-          Больше не нужно стоять у плиты. Выбирайте свой район на карте и заказывайте полноценное домашнее питание. Экономим до 20 часов вашей недели!
-        </p>
+    <div class="delivery__block">
+      <div class="delivery__text-wrapper">
+        <div class="delivery__content" data-aos="fade-up">
+          <h2 class="delivery__title">
+            Доставка домашних рационов в Караганде
+          </h2>
+          <p class="delivery__text">
+            Больше не нужно стоять у плиты. Выбирайте свой район на карте и
+            заказывайте полноценное домашнее питание. Экономим до 20 часов вашей
+            недели!
+          </p>
+        </div>
+      </div>
+
+      <div class="delivery__map" data-aos="fade-up" data-aos-delay="300">
+        <img
+          src="images/image 118.jpg"
+          alt="Карта доставки"
+          class="delivery__map-img"
+        />
       </div>
     </div>
-
-    <div class="delivery__map" data-aos="fade-up" data-aos-delay="300">
-      <img src="images/image 118.jpg" alt="Карта доставки" class="delivery__map-img" />
-
   </div>
-   </div>
 </section>
-
 
 <section class="section cta">
   <div class="container">
@@ -370,84 +343,119 @@
         <h2 class="cta__title">Бесплатная онлайн консультация нутрициолога</h2>
         <p class="cta__text">Наш нутрициолог ответит на ваши вопросы</p>
       </div>
-      
+
       <form class="cta__form">
         <div class="cta__inputs">
-          <input id="name" type="text" class="cta__input" placeholder="Ваше имя" required>
-          <input id="phone" type="tel" class="cta__input" placeholder="+7 (___) ___-__-__" required>
+          <input
+            id="name"
+            type="text"
+            class="cta__input"
+            placeholder="Ваше имя"
+            required
+          />
+          <input
+            id="phone"
+            type="tel"
+            class="cta__input"
+            placeholder="+7 (___) ___-__-__"
+            required
+          />
         </div>
-        <button type="submit" class="btn btn--full">Заказать консультацию</button>
+        <button type="submit" class="btn btn--full">
+          Заказать консультацию
+        </button>
       </form>
     </div>
   </div>
 </section>
 
-
 <section class="faq">
   <div class="container">
-    <h2 class="section__title text-center" data-aos="fade-up" data-aos-delay="100">FAQ</h2>
+    <h2
+      class="section__title text-center"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      FAQ
+    </h2>
 
     <div class="faq__wrapper">
       <div class="faq__tabs" data-aos="fade-up" data-aos-delay="200">
-      <button class="faq__tab active" data-target="nutrition">Питание</button>
-      <button class="faq__tab" data-target="menu">Меню и блюда</button>
-      <button class="faq__tab" data-target="delivery">Доставка</button>
-      <button class="faq__tab" data-target="payment">Подписка и оплата</button>
-      <button class="faq__tab" data-target="guarantee">Сервис и гарантии</button>
-    </div>
-
-
-    <div class="faq__content active" id="nutrition" data-aos="fade-up" data-aos-delay="300">
-      <div class="faq-item active">
-        <button class="faq-item__header">
-          <span>1. Какие программы питания доступны?</span>
-          <i class="ri-arrow-down-s-line"></i>
+        <button class="faq__tab active" data-target="nutrition">Питание</button>
+        <button class="faq__tab" data-target="menu">Меню и блюда</button>
+        <button class="faq__tab" data-target="delivery">Доставка</button>
+        <button class="faq__tab" data-target="payment">
+          Подписка и оплата
         </button>
-        <div class="faq-item__body">
-          <div class="faq-item__text">
-            Мы предлагаем ежедневные рационы с завтраком, обедом и ужином. Программы отличаются калорийностью и задачами: сбалансированное питание, поддержание формы или рацион с повышенным содержанием белка.
+        <button class="faq__tab" data-target="guarantee">
+          Сервис и гарантии
+        </button>
+      </div>
+
+      <div
+        class="faq__content active"
+        id="nutrition"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <div class="faq-item active">
+          <button class="faq-item__header">
+            <span>1. Какие программы питания доступны?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="faq-item__body">
+            <div class="faq-item__text">
+              Мы предлагаем ежедневные рационы с завтраком, обедом и ужином.
+              Программы отличаются калорийностью и задачами: сбалансированное
+              питание, поддержание формы или рацион с повышенным содержанием
+              белка.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__header">
+            <span>2. Это диетическое питание?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="faq-item__body">
+            <div class="faq-item__text">
+              Наше питание разработано нутрициологами для здорового образа
+              жизни...
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__header">
+            <span>3. Похудею ли я на вашем питании?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="faq-item__body">
+            <div class="faq-item__text">
+              Ответ на это зависит от вашего текущего рациона и образа жизни.
+              Наше питание сбалансировано и может помочь в достижении ваших
+              целей, будь то поддержание формы или снижение веса. Рекомендуем
+              проконсультироваться с нашим нутрициологом для индивидуальных
+              рекомендаций.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-item__header">
+            <span>4. Подойдёт ли питание для спорта?</span>
+            <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="faq-item__body">
+            <div class="faq-item__text">
+              Да, наше питание разработано с учетом потребностей спортсменов. Мы
+              предлагаем рационы с повышенным содержанием белка и оптимальной
+              калорийностью для поддержания энергии во время тренировок.
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-item__header">
-          <span>2. Это диетическое питание?</span>
-          <i class="ri-arrow-down-s-line"></i>
-        </button>
-        <div class="faq-item__body">
-          <div class="faq-item__text">
-            Наше питание разработано нутрициологами для здорового образа жизни...
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__header">
-          <span>3. Похудею ли я на вашем питании?</span>
-          <i class="ri-arrow-down-s-line"></i>
-        </button>
-        <div class="faq-item__body">
-          <div class="faq-item__text">
-            Ответ на это зависит от вашего текущего рациона и образа жизни. Наше питание сбалансировано и может помочь в достижении ваших целей, будь то поддержание формы или снижение веса. Рекомендуем проконсультироваться с нашим нутрициологом для индивидуальных рекомендаций.
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-item__header">
-          <span>4. Подойдёт ли питание для спорта?</span>
-          <i class="ri-arrow-down-s-line"></i>
-        </button>
-        <div class="faq-item__body">
-          <div class="faq-item__text">
-            Да, наше питание разработано с учетом потребностей спортсменов. Мы предлагаем рационы с повышенным содержанием белка и оптимальной калорийностью для поддержания энергии во время тренировок.
-          </div>
-        </div>
-      </div>
-
-      </div>
-
 
       <div class="faq__content" id="menu">
         <div class="faq-item">
@@ -457,7 +465,8 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              В нашем меню разнообразные блюда: от классических до авторских рецептов. Каждый день новый рацион с завтраком, обедом и ужином.
+              В нашем меню разнообразные блюда: от классических до авторских
+              рецептов. Каждый день новый рацион с завтраком, обедом и ужином.
             </div>
           </div>
         </div>
@@ -469,7 +478,9 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              На данный момент мы предлагаем готовые рационы без возможности выбора отдельных блюд. Это позволяет нам поддерживать высокое качество и разнообразие меню.
+              На данный момент мы предлагаем готовые рационы без возможности
+              выбора отдельных блюд. Это позволяет нам поддерживать высокое
+              качество и разнообразие меню.
             </div>
           </div>
         </div>
@@ -483,7 +494,8 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              Мы доставляем по всему городу Караганда. Вы можете выбрать удобное время доставки при оформлении заказа.
+              Мы доставляем по всему городу Караганда. Вы можете выбрать удобное
+              время доставки при оформлении заказа.
             </div>
           </div>
         </div>
@@ -495,7 +507,9 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              Доставка осуществляется курьерами в специальных термосумках, которые сохраняют свежесть и температуру блюд. Курьер привозит ваш рацион в удобное время и забирает предыдущую сумку.
+              Доставка осуществляется курьерами в специальных термосумках,
+              которые сохраняют свежесть и температуру блюд. Курьер привозит ваш
+              рацион в удобное время и забирает предыдущую сумку.
             </div>
           </div>
         </div>
@@ -509,7 +523,9 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              Мы принимаем оплату онлайн через наш сайт с помощью банковских карт. Оплата производится один раз при оформлении заказа, без автосписаний.
+              Мы принимаем оплату онлайн через наш сайт с помощью банковских
+              карт. Оплата производится один раз при оформлении заказа, без
+              автосписаний.
             </div>
           </div>
         </div>
@@ -521,7 +537,9 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              Да, вы можете отменить подписку в любой момент, связавшись с нашей поддержкой через WhatsApp, Direct или по телефону. Мы всегда готовы помочь вам с любыми вопросами.
+              Да, вы можете отменить подписку в любой момент, связавшись с нашей
+              поддержкой через WhatsApp, Direct или по телефону. Мы всегда
+              готовы помочь вам с любыми вопросами.
             </div>
           </div>
         </div>
@@ -535,7 +553,10 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              Мы гарантируем высокое качество наших блюд, которые готовятся из свежих ингредиентов и доставляются в специальных термосумках. Если у вас возникнут вопросы или проблемы с заказом, наша поддержка всегда готова помочь и найти решение.
+              Мы гарантируем высокое качество наших блюд, которые готовятся из
+              свежих ингредиентов и доставляются в специальных термосумках. Если
+              у вас возникнут вопросы или проблемы с заказом, наша поддержка
+              всегда готова помочь и найти решение.
             </div>
           </div>
         </div>
@@ -547,88 +568,119 @@
           </button>
           <div class="faq-item__body">
             <div class="faq-item__text">
-              Если вам не понравилось блюдо, пожалуйста, свяжитесь с нашей поддержкой. Мы ценим ваше мнение и всегда готовы обсудить любые вопросы или предложения по улучшению нашего сервиса.
+              Если вам не понравилось блюдо, пожалуйста, свяжитесь с нашей
+              поддержкой. Мы ценим ваше мнение и всегда готовы обсудить любые
+              вопросы или предложения по улучшению нашего сервиса.
             </div>
           </div>
         </div>
       </div>
-
     </div>
-    
-
   </div>
 </section>
-
 
 <section class="section about-us">
   <div class="container">
-    <h2 class="section__title text-center" data-aos="fade-up">Описание программ</h2>
-    
+    <h2 class="section__title text-center" data-aos="fade-up">
+      Описание программ
+    </h2>
 
     <div class="about-tabs__nav" data-aos="fade-up" data-aos-delay="100">
-            <button class="about-tabs__btn active" data-target="home-food">Домашняя еда</button>
-            <button class="about-tabs__btn" data-target="health-food">Правильное питание</button>
-        </div>
+      <button class="about-tabs__btn active" data-target="home-food">
+        Домашняя еда
+      </button>
+      <button class="about-tabs__btn" data-target="health-food">
+        Правильное питание
+      </button>
+    </div>
 
-        <div class="about-tabs__content active" id="home-food" data-aos="fade-up" data-aos-delay="100">
-            <div class="about-tabs__grid">
-                <div class="about-tabs__left">
-                    <h3 class="about-tabs__title">Домашнее блюдо</h3>
-                    <p class="about-tabs__text">
-                        Тот самый вкус маминой заботы, на который не нужно тратить весь вечер у плиты. 
-                        Мы готовим понятные и любимые блюда из свежих фермерских продуктов: 
-                        наваристые супы, золотистый картофель с мясом, сочные котлеты и нежную выпечку. 
-                        Это честная еда для тех, кто ценит уют и традиции.
-                    </p>
-                </div>
-                <div class="about-tabs__right">
-                    <ul class="about-tabs__list">
-                        <li class="about-tabs__item">
-                            <span class="about-tabs__item-title">Офисным сотрудникам:</span>
-                            <span class="about-tabs__item-desc">когда хочется нормального горячего обеда вместо бесконечных перекусов и фастфуда</span>
-                        </li>
-                        <li class="about-tabs__item">
-                            <span class="about-tabs__item-title">Молодым родителям:</span>
-                            <span class="about-tabs__item-desc">чтобы освободить 2–3 часа в день от готовки и провести их с ребенком, не жертвуя качеством питания семьи</span>
-                        </li>
-                        <li class="about-tabs__item">
-                            <span class="about-tabs__item-title">Студентам и холостякам:</span>
-                            <span class="about-tabs__item-desc">отличный способ питаться полноценно и разнообразно, не забивая голову рецептами и покупкой продуктов</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <div
+      class="about-tabs__content active"
+      id="home-food"
+      data-aos="fade-up"
+      data-aos-delay="100"
+    >
+      <div class="about-tabs__grid">
+        <div class="about-tabs__left">
+          <h3 class="about-tabs__title">Домашнее блюдо</h3>
+          <p class="about-tabs__text">
+            Тот самый вкус маминой заботы, на который не нужно тратить весь
+            вечер у плиты. Мы готовим понятные и любимые блюда из свежих
+            фермерских продуктов: наваристые супы, золотистый картофель с мясом,
+            сочные котлеты и нежную выпечку. Это честная еда для тех, кто ценит
+            уют и традиции.
+          </p>
         </div>
-        
-        <div class="about-tabs__content" id="health-food">
-            <div class="about-tabs__grid">
-                <div class="about-tabs__left">
-                    <h3 class="about-tabs__title">Правильное питание</h3>
-                    <p class="about-tabs__text">
-                        Сбалансированное питание, разработанное с учетом потребностей вашего организма. 
-                        Наши рационы включают блюда с оптимальным соотношением белков, жиров и углеводов, а также богатые витаминами и минералами. 
-                        Это идеальный выбор для тех, кто стремится поддерживать здоровье, улучшать физическую форму или просто чувствовать себя лучше каждый день.
-                    </p>
-                  </div>
-                <div class="about-tabs__right">
-                    <ul class="about-tabs__list">
-                        <li class="about-tabs__item">
-                            <span class="about-tabs__item-title">Занятым профессионалам:</span>
-                            <span class="about-tabs__item-desc">когда важно поддерживать энергию и концентрацию в течение дня, но нет времени на готовку</span>
-                        </li>
-                        <li class="about-tabs__item">
-                            <span class="about-tabs__item-title">Спортсменам и активным людям:</span>
-                            <span class="about-tabs__item-desc">для оптимального восстановления и поддержания формы с помощью правильного питания</span>
-                        </li>
-                        <li class="about-tabs__item">
-                            <span class="about-tabs__item-title">Тем, кто заботится о здоровье:</span>
-                            <span class="about-tabs__item-desc">когда хочется питаться вкусно и разнообразно, не жертвуя при этом качеством и пользой блюд</span>
-                        </li>
-                    </ul>
+        <div class="about-tabs__right">
+          <ul class="about-tabs__list">
+            <li class="about-tabs__item">
+              <span class="about-tabs__item-title">Офисным сотрудникам:</span>
+              <span class="about-tabs__item-desc"
+                >когда хочется нормального горячего обеда вместо бесконечных
+                перекусов и фастфуда</span
+              >
+            </li>
+            <li class="about-tabs__item">
+              <span class="about-tabs__item-title">Молодым родителям:</span>
+              <span class="about-tabs__item-desc"
+                >чтобы освободить 2–3 часа в день от готовки и провести их с
+                ребенком, не жертвуя качеством питания семьи</span
+              >
+            </li>
+            <li class="about-tabs__item">
+              <span class="about-tabs__item-title"
+                >Студентам и холостякам:</span
+              >
+              <span class="about-tabs__item-desc"
+                >отличный способ питаться полноценно и разнообразно, не забивая
+                голову рецептами и покупкой продуктов</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
+    <div class="about-tabs__content" id="health-food">
+      <div class="about-tabs__grid">
+        <div class="about-tabs__left">
+          <h3 class="about-tabs__title">Правильное питание</h3>
+          <p class="about-tabs__text">
+            Баланс нутриентов и эстетика в каждой тарелке. Мы исключили лишний
+            сахар, трансжиры и консерванты, заменив их на суперфуды, сложные
+            углеводы и качественный белок.
+          </p>
+          <p class="about-tabs__text">
+            Максимум пользы для вашего тела без чувства голода
+          </p>
+        </div>
+        <div class="about-tabs__right">
+          <ul class="about-tabs__list">
+            <li class="about-tabs__item">
+              <span class="about-tabs__item-title">Lite</span>
+              <span class="about-tabs__item-desc"
+                >Идеально для бережного снижения веса или поддержания формы при
+                низкой активности. Подходит тем, кто хочет плавно похудеть без
+                стресса для организма и жестких диет. Людям с сидячим образом
+                жизни, которым важно не переедать в течение дня.</span
+              >
+            </li>
+            <li class="about-tabs__item">
+              <span class="about-tabs__item-title">Strong (2500 ккал)</span>
+              <span class="about-tabs__item-desc"
+                >Заряд энергии для тех, кто всегда в движении. Подходит
+                спортсменам для качественного набора мышечной массы и быстрого
+                восстановления после тренировок. Людям с высокой активностью,
+                которым нужно много «топлива», чтобы оставаться продуктивными до
+                самого вечера.</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
 
 <section class="footer-cta">
   <div class="container">
@@ -637,14 +689,15 @@
         <a href="#" class="btn">Заказать звонок</a>
         <div class="call-us">
           <span class="call-us__text">Звоните по номеру:</span>
-          <a href="tel:+77001234567" class="call-us__phone">+7 (777) 777-77-77</a>
-         </div>
+          <a href="tel:+77001234567" class="call-us__phone"
+            >+7 (777) 777-77-77</a
+          >
         </div>
-
-        <div class="footer-cta__content--right">
-          <h3>Остались вопросы?</h3>
-          <p>Наш менеджер свяжется с вами в течение 15 минут</p>
       </div>
+
+      <div class="footer-cta__content--right">
+        <h3>Остались вопросы?</h3>
+        <p>Наш менеджер свяжется с вами в течение 15 минут</p>
       </div>
     </div>
   </div>
@@ -652,6 +705,7 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="js/main.min.js"></script>
+
 
 <footer class="footer">
     <div class="container">

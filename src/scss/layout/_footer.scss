@@ -20,7 +20,7 @@
                 "header"
                 "main";
             row-gap: 30px;
-            text-align: center;
+  
         }
     }
 
@@ -131,7 +131,7 @@
             gap: 15px;
 
             @include mobile {
-                justify-content: center;
+               
             }
         }
     }
@@ -153,6 +153,15 @@
         &:hover {
             transform: $transition;
             background-color: $color-secondary;
+        }
+
+
+        .ri-telegram-2-fill{
+            padding-right: 2px;
+        }
+
+        .ri-instagram-line {
+            padding-top: 2px;
         }
     }
 }
