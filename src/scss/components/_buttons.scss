@@ -25,6 +25,7 @@
 
   // Эффект при клике
   &:active {
+    background: $color-focus;
     transform: translateY(0);
   }
 
@@ -33,4 +34,12 @@
     padding: 14px 40px;
     width: 100%;
   }
+
+    // Вариант для полной ширины (например, в футере)
+    &--full {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      
+    }
 }
