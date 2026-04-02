@@ -223,11 +223,21 @@
   &__label { font-size: 24px; margin-bottom: 30px; font-weight: 600; }
 }
 
-// Навигация дней и калорий
-.days-nav, .calories-nav {
+.calories-nav{
   display: flex;
   gap: 10px;
-  margin-bottom: 30px;
+
+  button{
+    padding: 16px 48px;
+    line-height: 1;
+  }
+}
+
+// Навигация дней и калорий
+.days-nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
 }
 
 .day-link, .cal-btn {
@@ -822,4 +832,214 @@ padding: 0 20px;  }
 
 
 
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2001; // Выше шапки и всего контента
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  // Скрытое состояние по умолчанию
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Затемнение фона
+    backdrop-filter: blur(5px); // Легкий блюр как в современных UI
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    transform: translateY(20px); // Небольшой сдвиг вниз для анимации
+    transition: transform 0.3s ease;
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: $color-text;
+    z-index: 2;
+    transition: $transition;
+
+    &:hover {
+      transform: rotate(90deg);
+      color: $color-primary;
+    }
+  }
+
+  // СОСТОЯНИЕ КОГДА МОДАЛКА ОТКРЫТА
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    .modal__content {
+      background-color: $color-bg-main; // Кремовый фон для контента
+      padding: 50px 75px 35px;
+      border-radius: 30px;
+      transform: translateY(0); // Окно плавно "всплывает"
+    }
+  }
+}
+
+
+/* ==========================================================================
+   МОДАЛЬНОЕ ОКНО АВТОРИЗАЦИИ
+   ========================================================================== */
+
+.modal-auth {
+  // Базовые стили модалки (opacity 0 и т.д.) - предполагаю, что они есть в base.scss
+  &__content {
+    background-color: $color-bg-main; // Твой кремовый фон
+    padding: 60px;
+    max-width: 580px; // Примерная ширина карточки по макету
+    position: relative; // Для крестика
+  }
+
+  &__title {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: $color-text;
+    text-align: center;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+      font-size: 26px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; // Отступ между инпутами
+    margin-bottom: 30px;
+  }
+
+  &__submit {
+    // Встает на всю ширину формы
+    width: 100%;
+    height: 55px; // Чуть выше базовой
+    text-transform: uppercase; // Как в макете
+    margin-top: 10px;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  &__link-block {
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $color-text;
+    margin-bottom: 5px;
+  }
+
+  &__link {
+    font-size: 14px;
+    color: $color-text;
+    text-decoration: none;
+    transition: $transition;
+
+    &:hover {
+      color: $color-secondary;
+    }
+
+    &--bold {
+      font-weight: 600;
+    }
+  }
+}
+
+// ---------------------------------------------------------
+// ОБЩИЕ СТИЛИ ДЛЯ input-group (ведь они пригодятся везде)
+// ---------------------------------------------------------
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__label {
+    font-size: 14px;
+    color: $color-text;
+  }
+
+  &__required {
+    color: $color-primary; // Твой основной зеленый
+  }
+
+  // Твой базовый стиль инпута
+  input, &__input {
+    // Я использую существующий стиль, который ты скинул ранее
+    width: 100%;
+    height: 50px;
+    background: #fff !important; // В макете они белые, а не кремовые
+    border: none;
+    border-radius: 15px;
+    padding: 0 25px;
+
+    font-size: 16px;
+    color: $color-text;
+    box-shadow: 3px 3px 8px 0.5px rgba(0, 0, 0, 0.1);
+    transition: $transition;
+
+    &::placeholder {
+      color: rgba($color-text, 0.3);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 4px 15px rgba($color-secondary, 0.1);
+    }
+  }
+
+  // Логика для глаза в поле пароля
+  &--password {
+    & .input-group__field-wrap {
+      position: relative;
+    }
+    & .input-group__eye-toggle {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba($color-text, 0.4);
+      font-size: 20px;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover { color: $color-primary; }
+    }
+  }
 }

@@ -1,0 +1,348 @@
+.checkout-page {
+
+    input{
+        background-color: #FFFDFA !important;
+    }
+
+
+  &__title {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    color: $color-text;
+    margin-bottom: 50px;
+
+    @include mobile {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 40px;
+    align-items: stretch;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__subtitle {
+    font-family: 'Gilroy', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: 25px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    &--mb {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Кастомный чекбокс (Частный дом)
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-top: 5px;
+
+    input {
+      
+      display: none; // Прячем стандартный
+      
+      &:checked + .checkout__checkbox-mark {
+        background-color: $color-secondary;
+        border-color: $color-secondary;
+        
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &-mark {
+      width: 20px;
+      height: 20px;
+      border: 1px solid rgba($color-text, 0.3);
+      border-radius: 4px;
+      position: relative;
+      transition: $transition;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 6px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+        opacity: 0;
+        transition: $transition;
+      }
+    }
+
+    &-text {
+      font-size: 14px;
+      color: $color-text;
+    }
+  }
+
+  &__save-btn {
+    width: max-content;
+    padding: 0 40px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  // Кнопки способа оплаты (Радио-кнопки в виде табов)
+  &__payment-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @include mobile {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__payment-label {
+    input {
+      display: none;
+
+      &:checked + .checkout__payment-btn {
+        background-color: $color-secondary;
+        color: white;
+      }
+    }
+  }
+
+  &__payment-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background-color: #A8D984; // Светло-зеленый неактивный (подгони под макет)
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+  }
+
+  // Правая колонка: Карточка
+  &__program-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: $gradient-accent;
+    border-radius: 30px;
+    padding: 40px 30px;
+    color: white;
+
+    h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include mobile {
+      padding: 30px 20px;
+      border-radius: 15px;
+    }
+  }
+
+  // Правая колонка: Карта
+  &__map {
+    width: 100%;
+    height: 100%; // Растягивается на доступную высоту
+
+    border-radius: 30px;
+    overflow: hidden;
+
+    img, iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // Подвал оформления
+  &__footer {
+
+  }
+
+  &__footer-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: $color-text;
+    margin-bottom: 25px;
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px dashed rgba($color-text, 0.3); // Пунктирная линия по макету
+    margin-bottom: 25px;
+  }
+
+  &__total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__total-label {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__total-prices {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__price-old {
+    font-weight: 600;
+    font-size: 18px;
+    color: rgba($color-text, 0.5);
+    text-decoration: line-through;
+  }
+
+  &__price-new {
+    background-color: $color-secondary;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 15px;
+  }
+
+  &__action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+
+  &__legal {
+    font-size: 16px;
+    color: $color-text;
+    line-height: 1.4;
+
+    a {
+      color: rgba($color-text, 0.6);
+      text-decoration: underline;
+      transition: $transition;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__submit-btn {
+    width: 49%;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+
+  @include mobile {
+    gap: 40px;
+  }
+}
+
+.checkout__row{
+
+    &:first-child {
+        @include mobile {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    }
+    
+}
+
+
+.checkout__delivery-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; // Сохраняем твой отступ между инпутами
+  
+  // Анимационные свойства
+  max-height: 300px; // Достаточная высота для всех полей внутри
+  opacity: 1;
+  visibility: visible;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease, visibility 0.3s;
+
+  &.is-hidden {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    margin: -10px 0; // Схлопываем лишние отступы родительского flex-контейнера
+  }
+}

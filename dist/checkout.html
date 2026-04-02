@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление заказа</title>
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+  rel="stylesheet"
+/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="header__top-bar header__top-bar--inner">
+        <a href="https://wa.me/yourlink" class="header__icon-link">
+          <img src="images/svg/wa.svg" alt="WhatsApp" class="header__icon">
+        </a>
+
+        <nav class="header__nav header__nav--left">
+          <a href="#" class="menu__link">О компании</a>
+          <a href="#" class="menu__link">Меню</a>
+        </nav>
+
+        <a href="/" class="header__logo">
+          <img src="images/logo.png" alt="Day To Day Food">
+        </a>
+
+        <nav class="header__nav header__nav--right">
+          <a href="#" class="menu__link">Личный кабинет</a>
+          <a href="#" class="menu__link">FAQ</a>
+        </nav>
+
+       <button class="header__burger" aria-label="Открыть меню">
+  <span></span>
+</button>
+      </div>
+
+      <div class="header__badge">
+        Скидка 23% на первый заказ
+      </div>
+    </div>
+  </header>
+
+  
+  <div class="mobile-menu" id="mobile-menu">
+  <div class="container">
+    <div class="mobile-menu__top">
+      
+      <div class="mobile-menu__socials">
+        <a href="#" class="header__icon"><i class="ri-telegram-fill"></i></a>
+        <a href="#" class="header__icon"><i class="ri-instagram-line"></i></a>
+        <a href="#" class="header__icon"><i class="ri-whatsapp-line"></i></a>
+      </div>
+      
+      <a href="#" class="btn btn--outline mobile-menu__btn btn-login-open">Войти в личный кабинет</a>
+      
+      <img src="images/logo.png" alt="Day To Day Food" class="mobile-menu__logo">
+      
+      <button class="mobile-menu__close" id="mobile-menu-close">
+        <i class="ri-close-line"></i>
+      </button>
+
+    </div>
+
+    <nav class="mobile-menu__nav">
+      <a href="#" class="mobile-menu__link">О нас</a>
+      <a href="#" class="mobile-menu__link">Меню</a>
+      <a href="#" class="mobile-menu__link">Личный кабинет</a>
+      <a href="#" class="mobile-menu__link">Частые вопросы</a>
+      <a href="#" class="mobile-menu__link">Описание программ</a>
+      <a href="#" class="mobile-menu__link">Бесплатная консультация</a>
+    </nav>
+  </div>
+</div>
+
+
+
+<main class="page checkout-page">
+  <div class="container">
+    <h2 class="section__title section__title--breadcrumb text-center">Оформление заказа</h2>
+
+    <nav class="breadcrumbs">
+  <ul class="breadcrumbs__list">
+    <li class="breadcrumbs__item">
+      <a href="/" class="breadcrumbs__link">
+        <i class="ri-home-4-line"></i>
+        <span>Главная</span>
+      </a>
+    </li>
+    <li class="breadcrumbs__item">
+      <span class="breadcrumbs__current">Оформление заказа</span>
+    </li>
+  </ul>
+</nav>
+<form action="#" class="checkout">
+  <div class="checkout__row">
+    <div class="checkout__group">
+      <input type="text" placeholder="Имя Фамилия" required>
+      <input type="text" placeholder="Комментарий к заказу">
+      <input type="tel" placeholder="Номер телефона" required>
+    </div>
+
+    <div class="checkout__program-card">
+      <h3>Программы</h3>
+      <p>Правильное питание: 1600ккал</p>
+      <p>Длительность: 30 дней</p>
+    </div>
+  </div>
+
+ <div class="checkout__row">
+  <div class="checkout__section">
+    <h2 class="checkout__subtitle">Доставка</h2>
+    <div class="checkout__group">
+      <input type="text" placeholder="Улица" required>
+
+      <div class="checkout__delivery-extra" id="delivery-extra-fields">
+        <div class="checkout__row-2">
+          <input type="text" placeholder="Подъезд">
+          <input type="text" placeholder="Этаж">
+        </div>
+        <div class="checkout__row-2">
+          <input type="text" placeholder="Квартира">
+          <input type="text" placeholder="Код домофона">
+        </div>
+      </div>
+
+      <input type="text" placeholder="Примечания">
+      
+      <label class="checkout__checkbox">
+        <input type="checkbox" name="private_house" id="private-house-check">
+        <span class="checkout__checkbox-mark"></span>
+        <span class="checkout__checkbox-text">Частный дом</span>
+      </label>
+      <button type="button" class="btn">Сохранить</button>
+    </div>
+  </div>
+
+  <div class="checkout__map">
+    <img src="images/map.jpg" alt="Карта доставки">
+  </div>
+</div>
+
+  <div class="checkout__section checkout__section--full">
+    <h2 class="checkout__subtitle">Дата и время доставки</h2>
+    <div class="checkout__row-2">
+      <input type="text" placeholder="Дата: 7 апреля, Вторник">
+      <input type="text" placeholder="Время: 17:00-19:00">
+    </div>
+  </div>
+
+  <div class="checkout__section checkout__section--full">
+    <h2 class="checkout__subtitle">Способ оплаты</h2>
+    <div class="checkout__payment-methods">
+      <label class="checkout__payment-label">
+        <input type="radio" name="payment" value="card" checked>
+        <span class="checkout__payment-btn">Картой</span>
+      </label>
+      <label class="checkout__payment-label">
+        <input type="radio" name="payment" value="cash">
+        <span class="checkout__payment-btn">Наличными</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="checkout__footer">
+    <div class="checkout__footer-title">Правильное питание: 1600ккал</div>
+    <hr class="checkout__divider">
+    <div class="checkout__total-row">
+      <span class="checkout__total-label">Итого:</span>
+      <div class="checkout__total-prices">
+        <span class="checkout__price-old">45 450тг</span>
+        <span class="checkout__price-new">30 350тг</span>
+      </div>
+    </div>
+    <div class="checkout__action-row">
+      <p class="checkout__legal">
+        Нажимая «Оформить», вы принимаете условия<br>
+        <a href="#">оферты и политику конфиденциальности.</a>
+      </p>
+      <button type="submit" class="btn checkout__submit-btn">Оформить</button>
+    </div>
+  </div>
+</form>
+
+  </div>
+</main>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="js/main.min.js"></script>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__wrapper">
+      <div class="footer__logo-block">
+        <img
+          src="images/footer-logo.png"
+          alt="Day To Day Food"
+          class="footer__logo"
+        />
+      </div>
+
+      <div class="footer__header">
+        <div class="footer__header--one">
+          <h3>+7 (777) 777-77-77</h3>
+          <span>С 9.00 до 21.00</span>
+        </div>
+
+        <div class="footer__header--two">
+          <a href="mailto:day2dayfood@mail.ru">day2dayfood@mail.ru</a>
+        </div>
+
+        <div class="footer__header__three">
+          <span>
+            Фото носит иллюстративный характер. Внешний вид блюда может
+            незначительно отличаться
+          </span>
+        </div>
+      </div>
+
+      <div class="footer__main">
+        <div class="footer__col">
+          <ul class="footer__list">
+            <li><a href="#" class="footer__link">О компании</a></li>
+            <li><a href="#" class="footer__link">Консультация</a></li>
+            <li><a href="#" class="footer__link">Как это работает?</a></li>
+            <li><a href="#" class="footer__link">Описание программ</a></li>
+            <li><a href="#" class="footer__link">Акции и скидки</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <ul class="footer__list">
+            <li><a href="#" class="footer__link">Меню</a></li>
+            <li><a href="#" class="footer__link">Личный кабинет</a></li>
+            <li><a href="#" class="footer__link">Карта доставки</a></li>
+            <li><a href="#" class="footer__link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__socials">
+            <span class="footer__socials-title">Мы в соцсетях:</span>
+            <div class="footer__socials-icons">
+              <a href="#" class="footer__social-link"
+                ><i class="ri-telegram-2-fill"></i
+              ></a>
+              <a href="#" class="footer__social-link"
+                ><i class="ri-instagram-line"></i
+              ></a>
+              <a href="#" class="footer__social-link"
+                ><i class="ri-whatsapp-line"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<div class="modal modal-auth" id="login-modal">
+  <div class="modal__overlay"></div>
+  <div class="modal__content card">
+    
+    <button class="modal__close">
+      <i class="ri-close-line"></i>
+    </button>
+    
+   <div class="modal__inner">
+  <h3 class="section__title js-modal-title">Авторизуйтесь, чтобы продолжить</h3>
+
+  <form action="#" class="modal-auth__form">
+    <div class="modal-auth__reg-fields js-reg-only" style="display: none;">
+      <div class="input-group">
+        <label class="input-group__label">Имя <span class="input-group__required">*</span></label>
+        <input type="text" class="input-group__input" placeholder="Иван">
+      </div>
+      <div class="input-group">
+        <label class="input-group__label">Фамилия <span class="input-group__required">*</span></label>
+        <input type="text" class="input-group__input" placeholder="Иванов">
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label class="input-group__label">
+        Номер телефона <span class="input-group__required">*</span>
+      </label>
+      <input type="tel" class="input-group__input" placeholder="+7 (707) 573-95-14" required>
+    </div>
+
+    <div class="input-group js-email-field" style="display: none;">
+      <label class="input-group__label">E-mail <span class="input-group__required">*</span></label>
+      <input type="email" class="input-group__input" placeholder="example@mail.com">
+    </div>
+
+    <div class="input-group input-group--password js-password-field">
+      <label class="input-group__label">
+        Пароль <span class="input-group__required">*</span>
+      </label>
+      <div class="input-group__field-wrap">
+        <input type="password" class="input-group__input" placeholder="..............." required>
+        <button type="button" class="input-group__eye-toggle"><i class="ri-eye-line"></i></button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn--green modal-auth__submit js-submit-btn">Войти</button>
+  </form>
+
+  <footer class="modal-auth__footer">
+    <div class="modal-auth__link-block js-switch-to-reg">
+      <p class="modal-auth__text">Впервые у нас?</p>
+      <a href="#" class="modal-auth__link modal-auth__link--bold">Зарегистрируйтесь</a>
+    </div>
+    
+    <div class="modal-auth__link-block js-switch-to-forgot">
+      <p class="modal-auth__text">Воспользуйтесь функцией</p>
+      <a href="#" class="modal-auth__link modal-auth__link--bold">Напомнить пароль</a>
+    </div>
+
+    <div class="modal-auth__link-block js-switch-to-login" style="display: none;">
+      <p class="modal-auth__text">Уже есть аккаунт?</p>
+      <a href="#" class="modal-auth__link modal-auth__link--bold">Войти</a>
+    </div>
+  </footer>
+</div>
+  </div>
+</div>
+
+</body>
+</html>
