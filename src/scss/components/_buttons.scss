@@ -29,10 +29,11 @@
     transform: translateY(0);
   }
 
-  // Адаптив для мобилок (чтобы кнопка не была шире экрана)
-  @media (max-width: 480px) {
+
+  @include mobile {
     padding: 14px 40px;
     width: 100%;
+    border-radius: 15px;
   }
 
     // Вариант для полной ширины (например, в футере)

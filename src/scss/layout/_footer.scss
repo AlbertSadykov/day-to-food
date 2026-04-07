@@ -41,7 +41,13 @@
         gap: 30px;
 
         @include mobile {
-            grid-template-columns: 1fr;
+           grid-template-columns: 1fr 1fr; 
+
+           &__three {
+  display: none; // Скрываем третий блок на мобильных
+}
+
+
         }
 
         &--one {
@@ -89,7 +95,7 @@
         gap: 30px;
 
         @include mobile {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
         }
     }
 
@@ -168,3 +174,13 @@
 
 
 
+.footer__photo-note{
+    display: none;
+
+    @include mobile {
+        display: block;
+        font-size: 12px;
+
+        margin-top: 20px;
+    }
+}

@@ -488,6 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const regFields = document.querySelector('.js-reg-only');
   const emailField = document.querySelector('.js-email-field');
   const passField = document.querySelector('.js-password-field');
+  const phoneField = document.querySelector('.js-phone-field');
 
   // Ссылки переключения
   const toRegBtn = document.querySelector('.js-switch-to-reg');
@@ -518,9 +519,10 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     hideAll();
     title.textContent = 'Восстановление пароля';
-    submitBtn.textContent = 'Отправить код';
+    submitBtn.textContent = 'Отправить инструкцию';
     
-    emailField.style.display = 'none';
+    emailField.style.display = 'block';
+    phoneField.style.display = 'none';
     toLoginBtn.style.display = 'block';
   });
 

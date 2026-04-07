@@ -20,7 +20,7 @@
 
 
      &--inner {
-    background-color: $color-bg-card;
+    background-color: $color-white;
     border: 1px solid rgba($color-primary, 0.1);
   }
     
@@ -52,11 +52,16 @@
     width: fit-content;
     margin: 0 auto;
     text-align: center;
+
+    @include mobile {
+
+      border-radius: 0 0 30px 30px;
+    }
   }
 
 
   @include mobile {
-    top:30px;
+    top:15px;
   }
 
 
@@ -108,7 +113,8 @@
     span,
     &::before,
     &::after {
-      background-color: $color-secondary; 
+      background-color: $color-primary; 
+      transform: scale(1.1);
     }
   }
 }
